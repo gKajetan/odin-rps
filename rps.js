@@ -24,6 +24,15 @@ function getHumanChoice() {
     return humanChoice.toLowerCase();
 }
 
+function playRound(humanChoice, computerChoice) {
+    // tie condition
+    if(humanChoice === computerChoice) {
+        return "You've tied";
+    }
+}
+
 console.log("I've chosen " + getComputerChoice() + ' (rand number: ' + computerChoice + ')');
 
 console.log('Your choice: ' + getHumanChoice() + ' (input: ' + humanChoice + ')');
+
+console.log(playRound());

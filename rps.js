@@ -25,14 +25,26 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
+    // win condition
+    if ((humanChoice === 'rock' && computerChoice === 'scissors') || 
+    (humanChoice === 'paper' && computerChoice === 'rock') || 
+    (humanChoice === 'scissors' && computerChoice === 'paper')) {
+        return("You've win!");
+    }
+    // lose condition
+    else if ((humanChoice==='rock' && computerChoice === 'paper') ||
+    (humanChoice === 'paper' && computerChoice === 'scissors') ||
+    (humanChoice === 'scissors' && computerChoice === 'rock')) {
+        return("You've lost");
+    }
     // tie condition
-    if(humanChoice === computerChoice) {
+    else if(humanChoice === computerChoice) {
         return "You've tied";
     }
 }
 
-console.log("I've chosen " + getComputerChoice() + ' (rand number: ' + computerChoice + ')');
-
 console.log('Your choice: ' + getHumanChoice() + ' (input: ' + humanChoice + ')');
 
-console.log(playRound());
+console.log("I've chosen " + getComputerChoice() + ' (rand number: ' + computerChoice + ')');
+
+console.log(playRound(getHumanChoice(), getComputerChoice()));

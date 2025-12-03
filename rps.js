@@ -10,28 +10,20 @@ let computerScore = 0;
 
 function getComputerChoice() {
     if (computerChoice == 0) {
-        return 'Rock';
+        return 'rock';
     }
     else if (computerChoice == 1) {
-        return 'Paper';
+        return 'paper';
     }
     else if (computerChoice == 2) {
-        return 'Scissors';
+        return 'scissors';
     }
 }
 
 function getHumanChoice() {
-    if (humanChoice.toLowerCase() === 'rock') {
-        return 0;
-    }
-    if (humanChoice.toLowerCase() === 'paper') {
-        return 1;
-    }
-    if (humanChoice.toLowerCase() === 'scissors') {
-        return 2;
-    }
+    return humanChoice.toLowerCase();
 }
 
-console.log("I've chosen " + getComputerChoice() + ' (' + computerChoice + ')');
+console.log("I've chosen " + getComputerChoice() + ' (rand number: ' + computerChoice + ')');
 
-console.log('Your choice:' + getHumanChoice() + ' (' + humanChoice + ')');
+console.log('Your choice: ' + getHumanChoice() + ' (input: ' + humanChoice + ')');

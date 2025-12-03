@@ -8,6 +8,10 @@ let humanChoice = prompt("Pick your choice");
 let humanScore = 0;
 let computerScore = 0;
 
+/* for (let i = 0; i <= 5; i++) {
+    let humanChoice = prompt("Pick your choice");
+} */
+
 function getComputerChoice() {
     if (computerChoice == 0) {
         return 'rock';

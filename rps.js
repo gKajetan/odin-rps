@@ -32,7 +32,6 @@ function getHumanChoice() {
     }
 }
 
-console.log(computerChoice);
-console.log("I've chosen " + getComputerChoice());
+console.log("I've chosen " + getComputerChoice() + ' (' + computerChoice + ')');
 
-console.log('Your choice:' + getHumanChoice() + '(' + humanChoice + ')');
+console.log('Your choice:' + getHumanChoice() + ' (' + humanChoice + ')');

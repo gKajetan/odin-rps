@@ -3,39 +3,36 @@ console.log("Welcome to the Rock, Paper, Scissors game.");
 // 0 - rock, 1 - paper, 2 - scissors
 /* console.log(randomChoice); */
 
-let randomChoice = Math.floor(Math.random() * 3);
+let computerChoice = Math.floor(Math.random() * 3);
+let humanChoice = prompt("Pick your choice");
 let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
-    if (randomChoice == 0) {
+    if (computerChoice == 0) {
         return 'Rock';
     }
-    else if (randomChoice == 1) {
+    else if (computerChoice == 1) {
         return 'Paper';
     }
-    else if (randomChoice == 2) {
+    else if (computerChoice == 2) {
         return 'Scissors';
     }
 }
 
-let humanChoice = prompt("Pick your choice")
-
 function getHumanChoice() {
-    if (humanChoice == 'rock') {
+    if (humanChoice.toLowerCase() === 'rock') {
         return 0;
     }
-    if (humanChoice == 'paper') {
+    if (humanChoice.toLowerCase() === 'paper') {
         return 1;
     }
-    if (humanChoice == 'scissors') {
+    if (humanChoice.toLowerCase() === 'scissors') {
         return 2;
     }
 }
 
-
-console.log(randomChoice);
+console.log(computerChoice);
 console.log("I've chosen " + getComputerChoice());
 
-
-console.log(getHumanChoice());
+console.log('Your choice:' + getHumanChoice() + '(' + humanChoice + ')');

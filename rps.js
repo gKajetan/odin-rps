@@ -37,6 +37,23 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+// UI
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
+
+rockBtn.addEventListener("click", () => {
+    console.log('Rock Chosen');
+})
+
+paperBtn.addEventListener("click", () => {
+    console.log('Paper Chosen');
+})
+
+scissorsBtn.addEventListener("click", () => {
+    console.log('Scissors Chosen');
+})
+
 // Game loop
 for (let i = 0; i < totalRounds; i++) {
     // Randomize computer choice based on randomized number (0-3 / 0 - rock, 1 - paper, 2 - scissors)

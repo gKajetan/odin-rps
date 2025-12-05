@@ -1,29 +1,28 @@
 console.log("Welcome to the Rock, Paper, Scissors game.");
 console.log(" ");
 
-// 0 - rock, 1 - paper, 2 - scissors
-
 let humanScore = 0;
 let computerScore = 0;
 let totalRounds = 5;
 
-function getComputerChoice(computerInput) {
-    if (computerInput == 0) {
-        return 'rock';
+function interpComputerChoice(randComputerNumber) {
+    switch(randComputerNumber) {
+        case 0:
+            return 'rock';
+        case 1:
+            return 'paper';
+        case 2:
+            return 'scissors';
+        default:
+            return 'ERROR WHILE RANDOMIZING NUMBER';
     }
-    else if (computerInput == 1) {
-        return 'paper';
-    }
-    else if (computerInput == 2) {
-        return 'scissors';
-    }
-}
-
-function getHumanChoice(humanInput) {
-    return humanInput.toLowerCase();
 }
 
 function playRound(humanChoice, computerChoice) {
+    // tie condition
+    if (humanChoice === computerChoice) {
+        return "You've tied the round";
+    }
     // win condition
     if ((humanChoice === 'rock' && computerChoice === 'scissors') ||
         (humanChoice === 'paper' && computerChoice === 'rock') ||
@@ -32,26 +31,20 @@ function playRound(humanChoice, computerChoice) {
         return ("You've win the round");
     }
     // lose condition
-    else if ((humanChoice === 'rock' && computerChoice === 'paper') ||
-        (humanChoice === 'paper' && computerChoice === 'scissors') ||
-        (humanChoice === 'scissors' && computerChoice === 'rock')) {
+    else {
         computerScore++;
         return ("You've lost the round");
     }
-    // tie condition
-    else if (humanChoice === computerChoice) {
-        return "You've tied the round";
-    }
 }
 
+// Game loop
 for (let i = 0; i < totalRounds; i++) {
-    // Choices
-    let humanInput = prompt("Pick your choice");
-    let computerInput = Math.floor(Math.random() * 3);
+    // Randomize computer choice based on randomized number (0-3 / 0 - rock, 1 - paper, 2 - scissors)
+    let randComputerNumber = Math.floor(Math.random() * 3);
 
     // Getting choices
-    let humanSelection = getHumanChoice(humanInput);
-    let computerSelection = getComputerChoice(computerInput);
+    let humanSelection = prompt("Pick your choice").toLowerCase();
+    let computerSelection = interpComputerChoice(randComputerNumber);
 
     // Play round
     console.log(`You've chosen: ${humanSelection}`)
@@ -61,6 +54,7 @@ for (let i = 0; i < totalRounds; i++) {
     console.log(" ");
 }
 
+// Game end
 if (humanScore > computerScore) {
     console.log("You win the game!");
 } else if (computerScore > humanScore) {

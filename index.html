@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors</title>
     <script src="rps.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div id="roundText">placeholder</div>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
+    <div id="gameBody">
+        <div id="computerBar">
+            <div id="computerText">Hey! Let's play!</div>
+            <div id="computerAppearance">
+                <div id="computerHand" style="font-size: 64px;">👋</div>
+                <div id="computerFace" style="font-size: 64px;">😎</div>
+            </div>
+        </div>
+
+        <div id="gameBar">
+            <div id="scoreText">SCORE</div>
+            <div id="roundText"> </div>
+        </div>
+
+        <div id="playerBar">
+            <div id="playerText">Pick your choice</div>
+            <div id="buttonContainer">
+                <button id="rock">✊</button>
+                <button id="paper">✋</button>
+                <button id="scissors">✌️</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        ❤️ Made by gKajetan for The Odin Project
+    </footer>
 </body>
+
 </html>

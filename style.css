@@ -1,0 +1,58 @@
+* {
+/*     border: 1px solid red;
+ */    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color:cornsilk;
+}
+
+#gameBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 64px;
+    background-color:bisque;
+    padding: 16px;
+    border-radius: 32px;
+}
+
+#computerAppearance {
+    display: flex;
+}
+
+#playerBar, #computerBar, #gameBar {
+    text-align: center;
+}
+
+#playerText, #computerText {
+    padding: 8px;
+}
+
+#scoreText {
+    font-size: 32px;
+    font-weight: 900;
+}
+
+button {
+    font-size: 64px;
+    background-color:cornsilk;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+button:hover {
+    border: 2px solid orange;
+}
+
+.restartButton {
+    font-size: 32px;
+    margin: 32px;
+}
+
+footer {
+    text-align: center;
+    padding: 16px;
+    font-size: small;
+}

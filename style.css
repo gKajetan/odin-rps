@@ -1,6 +1,10 @@
 * {
-    border: 1px solid red;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+/*     border: 1px solid red;
+ */    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color:cornsilk
 }
 
 #gameBody {
@@ -9,6 +13,9 @@
     align-items: center;
     flex-direction: column;
     gap: 64px;
+    background-color:bisque;
+    margin: 0;
+    padding: 16px;
 }
 
 #computerAppearance {
@@ -24,4 +31,13 @@
 #scoreText {
     font-size: 32px;
     font-weight: 900;
+}
+
+button {
+    font-size: 64px;
+    background-color:cornsilk;
+}
+
+button:hover {
+    border: 2px solid orange;
 }

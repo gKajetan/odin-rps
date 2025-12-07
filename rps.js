@@ -4,6 +4,8 @@ console.log(" ");
 let humanScore = 0;
 let computerScore = 0;
 let roundCount = 0;
+const computerFace = document.querySelector('#computerFace');
+const computerHand = document.querySelector('#computerHand');
 
 let humanChoice = '';
 
@@ -11,10 +13,13 @@ let humanChoice = '';
 function interpComputerChoice(randComputerNumber) {
     switch (randComputerNumber) {
         case 0:
+            computerHand.textContent = '👊';
             return 'rock';
         case 1:
+            computerHand.textContent = '✋'
             return 'paper';
         case 2:
+            computerHand.textContent = '✌️'
             return 'scissors';
         default:
             return 'ERROR WHILE RANDOMIZING NUMBER';
@@ -24,6 +29,7 @@ function interpComputerChoice(randComputerNumber) {
 function playRound(humanChoice, computerSelection) {
     // tie condition
     if (humanChoice === computerSelection) {
+        computerFace.textContent = '😳';
         return "You've tied the round";
     }
     // win condition
@@ -31,21 +37,29 @@ function playRound(humanChoice, computerSelection) {
         (humanChoice === 'paper' && computerSelection === 'rock') ||
         (humanChoice === 'scissors' && computerSelection === 'paper')) {
         humanScore++;
-        return ("You've win the round 🔥");
+        computerFace.textContent = '😣';
+        return ("You've win the round");
     }
     // lose condition
     else {
         computerScore++;
+        computerFace.textContent = '😏';
         return ("You've lost the round");
     }
 }
 
 function endRound(humanScore, computerScore) {
     if (humanScore > computerScore) {
+        computerFace.textContent = '😭';
+        computerHand.textContent = '👏';
         return ("You win the game!");
     } else if (computerScore > humanScore) {
+        computerFace.textContent = '😝';
+        computerHand.textContent = '👏';
         return ("The Computer wins the game!");
     } else {
+        computerFace.textContent = '😯';
+        computerHand.textContent = '👏';
         return ("It's a tie!");
     }
 }
@@ -54,8 +68,6 @@ function gameLoop(humanChoice) {
     // get choices
     let randComputerNumber = Math.floor(Math.random() * 3);
     let computerSelection = interpComputerChoice(randComputerNumber);
-    console.log(`You chose: ${humanChoice}`);
-    console.log(`Computer chose: ${computerSelection}`);
 
     // round status
     const roundMessage = roundText.textContent = playRound(humanChoice, computerSelection);
@@ -67,10 +79,18 @@ function gameLoop(humanChoice) {
     roundCount += 1;
     console.log(roundCount);
 
+    // player choice text status
+    const playerMessage = playerText.textContent = `You've chosen ${humanChoice}`;
+    console.log(`You've chosen: ${humanChoice}`);
+
+    // computer choice text status
+    const computerMessage = computerText.textContent = `I've chosen ${computerSelection}`;
+    console.log(`Computer chose: ${computerSelection}`);
+
+    // end game
     if (roundCount === 5) {
-        roundText.textContent = endRound(humanScore, computerScore);
+        roundText.textContent = roundMessage + '. ' + endRound(humanScore, computerScore);
         console.log(endRound(humanScore, computerScore));
-        
     }
 }
 
@@ -78,7 +98,6 @@ function gameLoop(humanChoice) {
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
-const statusText = document.querySelector("#statusText")
 
 // Game Loop
 rockBtn.addEventListener("click", () => {

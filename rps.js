@@ -80,15 +80,21 @@ const statusText = document.querySelector("#statusText")
 
 // Game Loop
 rockBtn.addEventListener("click", () => {
-    gameLoop('rock');
+    if (roundCount != 5) {
+        gameLoop('rock');
+    }
 })
 
 paperBtn.addEventListener("click", () => {
-    gameLoop('paper');
+    if (roundCount != 5) {
+        gameLoop('paper');
+    }
 })
 
 scissorsBtn.addEventListener("click", () => {
-    gameLoop('scissors');
+    if (roundCount != 5) {
+        gameLoop('scissors');
+    }
 })
 
 // Game loop

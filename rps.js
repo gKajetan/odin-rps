@@ -50,64 +50,45 @@ function endRound(humanScore, computerScore) {
     }
 }
 
+function gameLoop(humanChoice) {
+    // get choices
+    let randComputerNumber = Math.floor(Math.random() * 3);
+    let computerSelection = interpComputerChoice(randComputerNumber);
+    console.log(`You chose: ${humanChoice}`);
+    console.log(`Computer chose: ${computerSelection}`);
+
+    // change status text
+    const roundMessage = roundText.textContent = playRound(humanChoice, computerSelection);
+    console.log(roundMessage);
+
+    // print score
+    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+    roundCount += 1;
+    console.log(roundCount);
+
+    if (roundCount === 5) {
+        endRound(humanScore, computerScore);
+        console.log(endRound(humanScore, computerScore));
+    }
+}
+
 // UI
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
+const statusText = document.querySelector("#statusText")
 
 // Game Loop
 rockBtn.addEventListener("click", () => {
-    let humanChoice = 'rock';
-    let randComputerNumber = Math.floor(Math.random() * 3);
-    let computerSelection = interpComputerChoice(randComputerNumber);
-    console.log(`You chose: ${humanChoice}`);
-    console.log(`Computer chose: ${computerSelection}`);
-    console.log(playRound(humanChoice, computerSelection));
-    // print score
-    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
-    roundCount += 1;
-    console.log(roundCount);
-
-    if (roundCount === 5) {
-        endRound(humanScore, computerScore);
-        console.log(endRound(humanScore, computerScore));
-    }
+    gameLoop('rock');
 })
 
 paperBtn.addEventListener("click", () => {
-    let humanChoice = 'paper';
-    let randComputerNumber = Math.floor(Math.random() * 3);
-    let computerSelection = interpComputerChoice(randComputerNumber);
-    console.log(`You chose: ${humanChoice}`);
-    console.log(`Computer chose: ${computerSelection}`);
-    console.log(playRound(humanChoice, computerSelection));
-    // print score
-    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
-    roundCount += 1;
-    console.log(roundCount);
-
-    if (roundCount === 5) {
-        endRound(humanScore, computerScore);
-        console.log(endRound(humanScore, computerScore));
-    }
+    gameLoop('paper');
 })
 
 scissorsBtn.addEventListener("click", () => {
-    let humanChoice = 'scissors';
-    let randComputerNumber = Math.floor(Math.random() * 3);
-    let computerSelection = interpComputerChoice(randComputerNumber);
-    console.log(`You chose: ${humanChoice}`);
-    console.log(`Computer chose: ${computerSelection}`);
-    console.log(playRound(humanChoice, computerSelection));
-    // print score
-    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
-    roundCount += 1;
-    console.log(roundCount);
-
-    if (roundCount === 5) {
-        endRound(humanScore, computerScore);
-        console.log(endRound(humanScore, computerScore));
-    }
+    gameLoop('scissors');
 })
 
 // Game loop

@@ -31,7 +31,7 @@ function playRound(humanChoice, computerSelection) {
         (humanChoice === 'paper' && computerSelection === 'rock') ||
         (humanChoice === 'scissors' && computerSelection === 'paper')) {
         humanScore++;
-        return ("You've win the round");
+        return ("You've win the round 🔥");
     }
     // lose condition
     else {

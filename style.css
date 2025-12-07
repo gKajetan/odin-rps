@@ -1,0 +1,14 @@
+* {
+    border: 1px solid red;
+}
+
+#gameBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#computerAppearance {
+    display: flex;
+}

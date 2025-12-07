@@ -3,10 +3,13 @@ console.log(" ");
 
 let humanScore = 0;
 let computerScore = 0;
-let totalRounds = 5;
+let roundCount = 0;
+
+let humanChoice = '';
+
 
 function interpComputerChoice(randComputerNumber) {
-    switch(randComputerNumber) {
+    switch (randComputerNumber) {
         case 0:
             return 'rock';
         case 1:
@@ -18,15 +21,15 @@ function interpComputerChoice(randComputerNumber) {
     }
 }
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerSelection) {
     // tie condition
-    if (humanChoice === computerChoice) {
+    if (humanChoice === computerSelection) {
         return "You've tied the round";
     }
     // win condition
-    if ((humanChoice === 'rock' && computerChoice === 'scissors') ||
-        (humanChoice === 'paper' && computerChoice === 'rock') ||
-        (humanChoice === 'scissors' && computerChoice === 'paper')) {
+    if ((humanChoice === 'rock' && computerSelection === 'scissors') ||
+        (humanChoice === 'paper' && computerSelection === 'rock') ||
+        (humanChoice === 'scissors' && computerSelection === 'paper')) {
         humanScore++;
         return ("You've win the round");
     }
@@ -37,45 +40,86 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+function endRound(humanScore, computerScore) {
+    if (humanScore > computerScore) {
+        return ("You win the game!");
+    } else if (computerScore > humanScore) {
+        return ("The Computer wins the game!");
+    } else {
+        return ("It's a tie!");
+    }
+}
+
 // UI
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
 
+// Game Loop
 rockBtn.addEventListener("click", () => {
-    console.log('Rock Chosen');
+    let humanChoice = 'rock';
+    let randComputerNumber = Math.floor(Math.random() * 3);
+    let computerSelection = interpComputerChoice(randComputerNumber);
+    console.log(`You chose: ${humanChoice}`);
+    console.log(`Computer chose: ${computerSelection}`);
+    console.log(playRound(humanChoice, computerSelection));
+    // print score
+    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+    roundCount += 1;
+    console.log(roundCount);
+
+    if (roundCount === 5) {
+        endRound(humanScore, computerScore);
+        console.log(endRound(humanScore, computerScore));
+    }
 })
 
 paperBtn.addEventListener("click", () => {
-    console.log('Paper Chosen');
+    let humanChoice = 'paper';
+    let randComputerNumber = Math.floor(Math.random() * 3);
+    let computerSelection = interpComputerChoice(randComputerNumber);
+    console.log(`You chose: ${humanChoice}`);
+    console.log(`Computer chose: ${computerSelection}`);
+    console.log(playRound(humanChoice, computerSelection));
+    // print score
+    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+    roundCount += 1;
+    console.log(roundCount);
+
+    if (roundCount === 5) {
+        endRound(humanScore, computerScore);
+        console.log(endRound(humanScore, computerScore));
+    }
 })
 
 scissorsBtn.addEventListener("click", () => {
-    console.log('Scissors Chosen');
+    let humanChoice = 'scissors';
+    let randComputerNumber = Math.floor(Math.random() * 3);
+    let computerSelection = interpComputerChoice(randComputerNumber);
+    console.log(`You chose: ${humanChoice}`);
+    console.log(`Computer chose: ${computerSelection}`);
+    console.log(playRound(humanChoice, computerSelection));
+    // print score
+    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+    roundCount += 1;
+    console.log(roundCount);
+
+    if (roundCount === 5) {
+        endRound(humanScore, computerScore);
+        console.log(endRound(humanScore, computerScore));
+    }
 })
 
 // Game loop
-for (let i = 0; i < totalRounds; i++) {
-    // Randomize computer choice based on randomized number (0-3 / 0 - rock, 1 - paper, 2 - scissors)
-    let randComputerNumber = Math.floor(Math.random() * 3);
 
-    // Getting choices
-    let humanSelection = prompt("Pick your choice").toLowerCase();
-    let computerSelection = interpComputerChoice(randComputerNumber);
+// Getting choices
+/* let humanSelection = prompt("Pick your choice").toLowerCase(); */
 
-    // Play round
-    console.log(`You've chosen: ${humanSelection}`)
-    console.log(`Computer chose: ${computerSelection}`)
-    console.log(playRound(humanSelection, computerSelection));
-    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
-    console.log(" ");
-}
+// Play round
+/* console.log(`You've chosen: ${humanChoice}`) */
+
+/* console.log(playRound(humanChoice, computerSelection)); */
+
+/* console.log(" "); */
 
 // Game end
-if (humanScore > computerScore) {
-    console.log("You win the game!");
-} else if (computerScore > humanScore) {
-    console.log("The Computer wins the game!");
-} else {
-    console.log("It's a tie!");
-}

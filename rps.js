@@ -57,18 +57,20 @@ function gameLoop(humanChoice) {
     console.log(`You chose: ${humanChoice}`);
     console.log(`Computer chose: ${computerSelection}`);
 
-    // change status text
+    // round status
     const roundMessage = roundText.textContent = playRound(humanChoice, computerSelection);
     console.log(roundMessage);
 
-    // print score
+    // score status
+    const scoreMessage = scoreText.textContent = `Human ${humanScore} - Computer ${computerScore}`;
     console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
     roundCount += 1;
     console.log(roundCount);
 
     if (roundCount === 5) {
-        endRound(humanScore, computerScore);
+        roundText.textContent = endRound(humanScore, computerScore);
         console.log(endRound(humanScore, computerScore));
+        
     }
 }
 

@@ -1,5 +1,6 @@
 * {
     border: 1px solid red;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #gameBody {
@@ -7,8 +8,20 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 64px;
 }
 
 #computerAppearance {
     display: flex;
+}
+
+#playerBar, #computerBar, #gameBar {
+    text-align: center;
+}
+
+
+
+#scoreText {
+    font-size: 32px;
+    font-weight: 900;
 }
